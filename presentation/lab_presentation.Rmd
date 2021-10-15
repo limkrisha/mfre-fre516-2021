@@ -165,7 +165,7 @@ knitr::include_graphics("figs/powerquery.png")
 knitr::include_graphics("figs/getdata.png")
 ```
 
-- Click "Transform Data" 
+- Click "Transform Data"  
 
 ```{r, echo = FALSE, out.width = "40%"}
 knitr::include_graphics("figs/transformdata.png")
