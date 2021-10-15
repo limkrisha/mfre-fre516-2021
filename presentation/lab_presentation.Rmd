@@ -171,6 +171,10 @@ knitr::include_graphics("figs/getdata.png")
 knitr::include_graphics("figs/transformdata.png")
 ```
 
+---
+
+# Suggested Steps
+
 ```{r convert, include = F}
 #library(xaringanBuilder)
 
