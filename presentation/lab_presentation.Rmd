@@ -161,7 +161,8 @@ knitr::include_graphics("figs/powerquery.png")
 
 # Suggested steps 
 
-- 
+- Extract work book data
+
 ```{r convert, include = F}
 #library(xaringanBuilder)
 
