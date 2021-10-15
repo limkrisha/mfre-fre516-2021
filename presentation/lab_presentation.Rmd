@@ -155,13 +155,21 @@ knitr::include_graphics("figs/powerquery.png")
 
 - Power Query Editor *will not* work if any of the files you will load is opened. 
 
-- We will load all the files saved in the "data" folder into Excel 
-
 ---
 
-# Suggested steps 
+# Data setup
 
-- Extract work book data
+- Data tab -> Get Data -> From File -> From Folder -> Locate your "data" folder -> "OK" 
+
+```{r, echo = FALSE, out.width = "40%"}
+knitr::include_graphics("figs/getdata.png")
+```
+
+- Click "Transform Data" 
+
+```{r, echo = FALSE, out.width = "40%"}
+knitr::include_graphics("figs/transformdata.png")
+```
 
 ```{r convert, include = F}
 #library(xaringanBuilder)
