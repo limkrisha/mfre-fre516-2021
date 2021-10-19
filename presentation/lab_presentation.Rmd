@@ -354,7 +354,7 @@ knitr::include_graphics("figs/calculateditem_modify.png")
 - Add the spreadsheets to your "data" folder
 - In Excel, Data tab -> "Refresh All" (2x) 
 
-```{r, echo = FALSE, out.width = "65%"}
+```{r, echo = FALSE, out.width = "60%"}
 knitr::include_graphics("figs/refreshing.gif")
 ```
 
