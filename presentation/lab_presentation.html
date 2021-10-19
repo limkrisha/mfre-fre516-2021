@@ -39,15 +39,13 @@ class: center, middle, inverse, title-slide
 
 # Lab Prep
 
-☑ To add
+☑ Download files uploaded on Canvas
 
----
+☑ Go through the slides and try working through the example
 
-# Overview
+☑ Read the other assigned readings for this lab
 
-- Explore data cleaning steps using Power Query
-- Create Pivot Tables and calculated items 
-- Build a dashboard
+☑ If you are a Mac user, find a friend who has a Windows laptop and can run Power Query on their device and sit beside them during the lab! 
 
 ---
 
@@ -55,7 +53,7 @@ class: center, middle, inverse, title-slide
 
 - Import and consolidate data using Power Query
 - Automate data cleaning steps in Excel
-- Create a dashboard with slicers
+- Create a dashboard with slicers ("visual filters")
 - Update/Refresh tables with new data 
 
 ---
@@ -65,31 +63,24 @@ class: center, middle, inverse, title-slide
 &lt;img src="figs/apps.jpg" width="85%" style="display: block; margin: auto;" /&gt;
 
 ---
-# Roadmap
+# Roadmap - Raw Data
 
 &lt;img src="figs/rawdata.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
-# Roadmap
+# Roadmap - Tidy Data
 
 &lt;img src="figs/tidydata.png" width="85%" style="display: block; margin: auto;" /&gt;
 
 ---
-# Roadmap
+# Roadmap - Dashboard
 
-&lt;img src="figs/dashboard_sample.png" width="85%" style="display: block; margin: auto;" /&gt;
-
----
-# Power Query
-
-Have any of you used Power Query in the past?
+&lt;img src="figs/dashboard_charts_new.gif" width="85%" style="display: block; margin: auto;" /&gt;
 
 ---
 # Power Query
 
 “Power Query is a data transformation and data preparation engine. Power Query comes with a graphical interface for getting data from sources and a Power Query Editor for applying transformations.” 
-
-What do you think are the advantages/disadvantages of using Power Query compared to R/Python?
 
 
 &lt;img src="figs/powerquery.png" width="50%" style="display: block; margin: auto;" /&gt;
@@ -97,6 +88,15 @@ What do you think are the advantages/disadvantages of using Power Query compared
 .footnote[
 [1] [What is Power Query?](https://docs.microsoft.com/en-us/power-query/power-query-what-is-power-query)
 ]
+
+
+---
+# Power Query
+
+Have any of you used Power Query in the past?
+
+What do you think are the advantages/disadvantages of using Power Query compared to R/Python?
+
 
 ---
 
@@ -127,9 +127,9 @@ What do you think are the advantages/disadvantages of using Power Query compared
   - Do not save these files in the “data” folder. Either save it in the "lab_516" folder or keep it in your “Downloads” folder
 - Open file in Excel -&gt; Click “Enable Editing” -&gt; Save As Excel workbook (.xlsx) in the “data” folder
 - Use meaningful file names – important for later!
-  - Starbucks-cash-flow.xlsx
-  - Starbucks-balance-sheet.xlsx
-  - Starbucks-income-statement.xlsx
+  - starbucks-cashflow.xlsx
+  - starbucks-balancesheet.xlsx
+  - starbucks-incomestatement.xlsx
 
 ---
 
@@ -141,7 +141,7 @@ What do you think are the advantages/disadvantages of using Power Query compared
 
 ---
 
-# Data setup
+# Suggested Steps
 
 - Data tab -&gt; Get Data -&gt; From File -&gt; From Folder -&gt; Locate your "data" folder -&gt; "OK" 
 
@@ -154,6 +154,216 @@ What do you think are the advantages/disadvantages of using Power Query compared
 ---
 
 # Suggested Steps
+
+Now your screen will look something like this
+
+![](figs/interface.png)
+
+---
+
+# Suggested Steps
+
+We use the syntax *Excel.Workbook([Content])* to return the contents of the Excel workbook. 
+
+![](figs/expandcontent.png)
+
+---
+
+# Suggested Steps
+
+- Delete irrelevant columns (keep only Name and Custom)
+  - Select columns to drop -&gt; Right click -&gt; Remove Columns
+- Expand Custom column 
+- Delete irrelevant columns (keep only Name, Custom.Data)
+- Expand Custom.Data column 
+- Click table icon on the upper left area of the table (above row numbers) -&gt; Use first row as headers
+  - third to last columns should be years now (i.e., 2016, 2017, ..., 2020)
+
+---
+
+# Suggested Steps
+
+- Select the second column -&gt; Transform tab -&gt; Format -&gt; Trim (to align all to left)
+- Rename column to "Categories" -&gt; Filter values 
+  - unmark "APRN_cash-flow_Annual_As_Originally_Reported", "APRN_income-statement-Quarterly_Restated", etc.)
+- Add Column tab -&gt; Column From Examples -&gt; "Company" -&gt; "blueapron"
+  - We're using values in the first column to create this column
+  - Why naming our sheets with meaningful names is important
+- Add Column tab -&gt; Column From Examples -&gt; "Statement" -&gt; "balancesheet" 
+- Delete any irrelevant columns
+- Reorder columns
+
+---
+
+# Suggested Steps
+
+- Select columns 2016-2020 - Transform tab -&gt; Unpivot columns
+- Convert "Value" column to numeric format
+- Rename "Attribute" to "Year" 
+
+&lt;img src="figs/unpivot.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Suggested Steps
+
+- Click File -&gt; Close and Load
+- Now you will be back in Excel, with the tidy data in a Table
+- Rename sheet to "data"
+
+&lt;img src="figs/exceldata.png" width="53%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Suggested Steps
+
+- The next steps would be to create a pivot table containing financial ratios
+- We will use custom formulas in Excel's pivot table (specifically Calculated Item)
+- Read more about Calculated Item [here](https://support.microsoft.com/en-us/office/calculate-values-in-a-pivottable-11f41417-da80-435c-a5c6-b0185e59da77) or [here](https://www.contextures.com/calculatedfieldcalculateditem.html)
+
+---
+
+# Suggested Steps
+
+1. Click anywhere on the Table -&gt; Insert tab -&gt; Pivot Table -&gt; OK
+2. Drag Year to Filters, Company to Columns, Category to Rows, Value to Values
+3. Click anywhere on the cell of your Pivot Table (e.g., cell A5)
+4. Analyze tab -&gt; Fields, Items, &amp; Sets -&gt; Calculated Item
+
+&lt;img src="figs/calculateditem.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Suggested Steps
+
+- Type in the relevant formula of the ratio
+  - Use meaningful names
+  - Can be tricky with the category names (i.e., "Total Operating Profit/Loss" value is different from "Total Operating Profit/Loss, Supplemental")
+  
+&lt;img src="figs/currentratio.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Formulas
+
+1. Current Ratio = 'Total Current Assets' /'Total Current Liabilities’
+2. Interest Coverage ='Total Operating Profit/Loss as Reported, Supplemental'/'Interest Expense Net of Capitalized Interest'
+3. Debt ratio = 'Total Liabilities'/'Total Assets’
+4. Profit margin (using operating profits) = 'Total Operating Profit/Loss as Reported, Supplemental'/ 'Total Revenue as Reported, Supplemental'
+5. Profit margin (using net income) = 'Net Income Available to Common Stockholder' / 'Total Revenue as Reported, Supplemental'
+
+---
+
+# Suggested Steps
+
+- After you have created your formulas, go back to your Pivot Table and filter to those values only in "Categories"
+  - I moved "Year" to Columns to show all values
+- Looks like something is wrong with the Blue Apron calculation
+
+![](figs/pivot_error.png)
+
+---
+
+# Suggested Steps
+
+- Upon closer look of the Net Income Statement, Starbucks has a "Interest Expense Net of Capitalized Interest" but Blue Apron does not.
+- Both have "Net Interest Income/Expense"
+- For this exercise, I will just use this variable (i.e., Net Interest Income/Expense) to calculate "Interest Coverage"
+- To modify the formula, open up Calculated Item -&gt; Interest Coverage -&gt; Change the formula -&gt; Modify -&gt; OK
+
+&lt;img src="figs/calculateditem_modify.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Creating Pivot Charts
+
+- Since we want one chart per ratio, we should just create separate Pivot Tables where each Pivot Table will contain the value of one financial ratio.
+- For each Pivot Table, insert a Pivot Chart and format the chart (e.g., use themes, 2 decimal places only, add data labels, delete axis labels, chart titles, etc.)
+- It is a good idea to label your Pivot Tables with meaningful names also (Analyze Tab -&gt; rename "PivotTable1" to "currentratio")
+  - Useful for later when we connect different charts with a slicer
+- To "clone" a Pivot Table, select a Pivot Table -&gt; Analyze tab -&gt; Select -&gt; Entire Pivot Table -&gt; Ctrl + C -&gt; Ctrl + V
+- Right click on any of the buttons (e.g., "Year", "Sum of Value") -&gt; "Hide All Field Buttons on Chart"
+
+---
+
+# Creating Pivot Charts
+
+- Here's my current worksheet (called charts)
+
+![](figs/pivotcharts.png)
+
+---
+
+# Creating a Dashboard
+
+- Slicers allow you or your users to filter data and visualizations. 
+- You can also choose which Pivot Tables and/or Pivot Charts are connected by the slicer. 
+
+.footnote[
+[1] [Slicers in Power BI](https://docs.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-slicers)
+
+[2] [Use slicers to filter data](https://support.microsoft.com/en-us/office/use-slicers-to-filter-data-249f966b-a9d5-4b0f-b31a-12651785d29d)
+
+]
+---
+
+# Creating a Dashboard
+
+- Create a new sheet called dashboard
+- View tab -&gt; Unmark "Gridlines" so the sheet will just be white
+- Copy your four Pivot Charts from the charts sheet to the dashboard sheet
+- Click any Pivot Chart -&gt; Insert tab -&gt; **Slicer** -&gt; Check "Year"
+- Right click Slicer -&gt; **Report Connections** -&gt; check all relevant Pivot Charts
+  - Why it's important to use meaningful Pivot Table names
+- Based on the "Year" you select, the chart's values will change  
+
+---
+
+# Updating your dashboard
+
+- Add the spreadsheets to your "data" folder
+- In Excel, Data tab -&gt; "Refresh All" (2x) 
+
+&lt;img src="figs/refreshing.gif" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Updating your dashboard
+
+- What's going on in the background?
+- Recall that in our data setup, we asked Excel to get data from the "data" folder
+- So every time we click "Refresh", Excel goes into that "data" folder and performs the Power Query steps that we have applied
+
+.footnote[
+[1] [Data Refresh in Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/refresh-data)
+]
+
+---
+
+# Troubleshooting 
+
+- What if you renamed your "data" folder or moved it to a different location in your computer? 
+- When you click "Refresh," you will get this error
+
+&lt;img src="figs/datafoldererror.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Troubleshooting 
+
+- Go to your data sheet -&gt; Click anywhere on the table -&gt; Query tab -&gt; Edit
+- Under Applied Steps on the right panel, click "Source" 
+- In the formula, edit the file path to your "data" folder -&gt; Enter
+
+---
+
+# Recap
+
+- Downloaded financial statements from Morningstar (could be financial statements or any spreadsheets too)
+- Imported and consolidated data using Power Query
+- Automated steps to transform raw data to tidy data
+- Calculated financial ratios using Excel's calculated fields
+- Built Pivot Tables and Pivot Charts and a Dashboard that updates with new data
 
 
     </textarea>
