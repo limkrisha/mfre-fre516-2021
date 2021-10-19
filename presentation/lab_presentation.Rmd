@@ -4,7 +4,7 @@ subtitle: "Power Query & Financial Ratios Dashboard"
 author: "October 29, 2021"
 output:
   xaringan::moon_reader:
-    css: [default, metropolis, metropolis-fonts, "scrollable.css"] 
+    css: [default, metropolis, metropolis-fonts] 
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -354,7 +354,7 @@ knitr::include_graphics("figs/calculateditem_modify.png")
 - Add the spreadsheets to your "data" folder
 - In Excel, Data tab -> "Refresh All" (2x) 
 
-```{r, echo = FALSE, out.width = "70%"}
+```{r, echo = FALSE, out.width = "65%"}
 knitr::include_graphics("figs/refreshing.gif")
 ```
 
@@ -400,9 +400,9 @@ knitr::include_graphics("figs/datafoldererror.png")
 - Built Pivot Tables and Pivot Charts and a Dashboard that updates with new data
 
 ```{r convert, include = F}
-#library(xaringanBuilder)
-
-#build_pdf("C:/Users/krishlim/OneDrive - UBC/Desktop/mfre/workshop2/presentation/data-viz.html")
+# library(xaringanBuilder)
+# 
+# build_pdf("C:/Users/krishlim/OneDrive - UBC/Desktop/mfre/2021w-fre516/presentation/lab_presentation.Rmd")
 
 # windowsFonts()
 # library(extrafont)
