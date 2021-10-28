@@ -35,6 +35,15 @@ class: center, middle, inverse, title-slide
 
 
 
+# Time Series
+
+- Trends and seasonality
+- Autocorrelation
+- Stationarity
+- Forecasting
+- Technical but fun and very applied stuff! 
+
+---
 
 # Lab Prep
 
@@ -162,7 +171,7 @@ Now your screen will look something like this
 
 # Suggested Steps
 
-We use the syntax *Excel.Workbook([Content])* to return the contents of the Excel workbook. 
+We use the syntax **Excel.Workbook([Content])** to return the contents of the Excel workbook. 
 
 ![](figs/expandcontent.png)
 
@@ -211,6 +220,51 @@ We use the syntax *Excel.Workbook([Content])* to return the contents of the Exce
 - Rename sheet to "data"
 
 &lt;img src="figs/exceldata.png" width="53%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Excel PDF data connector
+
+There's apparently a way to read tables in PDF format into Excel. However, it's only available part of the Office 365 Subscription. 
+
+&lt;img src="figs/excel_pdf.png" width="53%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# R
+
+- R has a [`{tabulizer}`](https://datascienceplus.com/extracting-tables-from-pdfs-in-r-using-the-tabulizer-package/) package to read PDF tables
+  - Sadly didn't get it to work 😔 
+  - Ran into a few errors with `{rtools}` package too
+
+- R also has this super cool package called [`{datapasta}`](https://github.com/MilesMcBain/datapasta) where you can copy and paste tables into R, which R can read as a dataframe right away
+  - Does not work all the time; depends on the type of table on the back end
+  - Works with the historical stock price [table](https://finance.yahoo.com/quote/SBUX/history?p=SBUX) but not with the financial statements [table](https://finance.yahoo.com/quote/SBUX/financials?p=SBUX)
+
+
+---
+
+# Python
+
+- Python has a [`tabula-py`](https://tabula-py.readthedocs.io/en/latest/) package that allows you to read tables from PDF and convert them to a data frame. 
+
+&lt;img src="figs/starbucks_report.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="figs/python_df.png" width="65%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] [Starbucks Financial Data](https://investor.starbucks.com/financial-data/annual-reports/default.aspx)
+]
+
+---
+
+# Python
+
+- Who knows when else you might need a function or package that is more accessible or easier to use in Python than in R (or other software)?
+
+- Come to the Python workshops on November 8 and 15!
+
+&lt;img src="figs/scanned_spreadsheets.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -271,6 +325,25 @@ We use the syntax *Excel.Workbook([Content])* to return the contents of the Exce
 - To modify the formula, open up Calculated Item -&gt; Interest Coverage -&gt; Change the formula -&gt; Modify -&gt; OK
 
 &lt;img src="figs/calculateditem_modify.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# What would Janelle say?
+
+- Any suggestions on how to "clean up" this table? 
+
+![](figs/janelle.png)
+
+---
+
+# What would Janelle say?
+
+- Center align the column headings
+- Right align the numbers
+- Show only 2 decimal places (or industry convention)
+- Modify text, as needed
+
+![](figs/janelle_fixed.png)
 
 ---
 
