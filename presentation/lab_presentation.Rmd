@@ -166,7 +166,7 @@ What do you think are the advantages/disadvantages of using Power Query compared
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - Data tab -> Get Data -> From File -> From Folder -> Locate your "data" folder -> "OK" 
 
@@ -182,7 +182,7 @@ knitr::include_graphics("figs/transformdata.png")
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 Now your screen will look something like this
 
@@ -190,7 +190,7 @@ Now your screen will look something like this
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 We use the syntax **Excel.Workbook([Content])** to return the contents of the Excel workbook. 
 
@@ -198,7 +198,7 @@ We use the syntax **Excel.Workbook([Content])** to return the contents of the Ex
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - Delete irrelevant columns (keep only Name and Custom)
   - Select columns to drop -> Right click -> Remove Columns
@@ -210,7 +210,7 @@ We use the syntax **Excel.Workbook([Content])** to return the contents of the Ex
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - Select the second column -> Transform tab -> Format -> Trim (to align all to left)
 - Rename column to "Categories" -> Filter values 
@@ -224,7 +224,7 @@ We use the syntax **Excel.Workbook([Content])** to return the contents of the Ex
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - Select columns 2016-2020 - Transform tab -> Unpivot columns
 - Convert "Value" column to numeric format
@@ -236,7 +236,7 @@ knitr::include_graphics("figs/unpivot.png")
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - Click File -> Close and Load
 - Now you will be back in Excel, with the tidy data in a Table
@@ -301,7 +301,7 @@ knitr::include_graphics("figs/scanned_spreadsheets.png")
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - The next steps would be to create a pivot table containing financial ratios
 - We will use custom formulas in Excel's pivot table (specifically Calculated Item)
@@ -309,7 +309,7 @@ knitr::include_graphics("figs/scanned_spreadsheets.png")
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 1. Click anywhere on the Table -> Insert tab -> Pivot Table -> OK
 2. Drag Year to Filters, Company to Columns, Category to Rows, Value to Values
@@ -322,7 +322,7 @@ knitr::include_graphics("figs/calculateditem.png")
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - Type in the relevant formula of the ratio
   - Use meaningful names
@@ -344,7 +344,7 @@ knitr::include_graphics("figs/currentratio.png")
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - After you have created your formulas, go back to your Pivot Table and filter to those values only in "Categories"
   - I moved "Year" to Columns to show all values
@@ -354,7 +354,7 @@ knitr::include_graphics("figs/currentratio.png")
 
 ---
 
-# Suggested Steps
+# Suggested steps
 
 - Upon closer look of the Net Income Statement, Starbucks has a "Interest Expense Net of Capitalized Interest" but Blue Apron does not.
 - Both have "Net Interest Income/Expense"
@@ -405,7 +405,7 @@ knitr::include_graphics("figs/calculateditem_modify.png")
 
 ---
 
-# Creating a Dashboard
+# Creating a dashboard
 
 - Slicers allow you or your users to filter data and visualizations. 
 - You can also choose which Pivot Tables and/or Pivot Charts are connected by the slicer. 
@@ -418,7 +418,7 @@ knitr::include_graphics("figs/calculateditem_modify.png")
 ]
 ---
 
-# Creating a Dashboard
+# Creating a dashboard
 
 - Create a new sheet called dashboard
 - View tab -> Unmark "Gridlines" so the sheet will just be white
